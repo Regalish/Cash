@@ -14,11 +14,11 @@ int main(void)
 
     // Calculate the number of quarters to give the customer
     int quarters = calculate_quarters(cents);
-    cents = cents - quarters * 25;
+    cents = cents % 25;
 
     // Calculate the number of dimes to give the customer
     int dimes = calculate_dimes(cents);
-    cents = cents - dimes * 10;
+    cents = cents % 10;
 
     // Calculate the number of nickels to give the customer
     int nickels = calculate_nickels(cents);
@@ -48,28 +48,14 @@ int get_cents(void)
 
 int calculate_quarters(int cents)
 {
-    // TODO
-    int quarters = 0;
-    while (cents >= 25)
-    {
-        cents = cents - 25;
-        quarters++;
-    }
-    printf("\nQuarters: %i", quarters);
-    return quarters;
+    printf("\nQuarters: %i", cents / 25);
+    return cents / 25;
 }
 
 int calculate_dimes(int cents)
 {
-    // TODO
-    int dimes = 0;
-    while (cents >= 10)
-    {
-        cents = cents - 10;
-        dimes++;        
-    }
-    printf("\nDimes: %i", dimes);
-    return dimes;
+    printf("\nQuarters: %i", cents / 10);
+    return cents / 10;
 }
 
 int calculate_nickels(int cents)
